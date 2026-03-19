@@ -1,5 +1,9 @@
+"use client";
+import { Navigate } from "@/components/Navigate";
+import { useSearchParams } from "next/navigation";
 import { useState, useMemo } from "react";
-import { Link, Navigate, useSearchParams } from "react-router-dom";
+import Link from "next/link";
+;;
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -43,8 +47,8 @@ const timeframeOptions = ["Immediately available", "Within 1 to 3 months", "Late
 
 const Apply = () => {
   const { user, loading: authLoading } = useAuth();
-  const [searchParams] = useSearchParams();
-  const preselectedProgram = searchParams.get("program") || "";
+  const searchParams = useSearchParams();
+  const preselectedProgram = searchParams?.get("program") || "";
 
   const [applicantType, setApplicantType] = useState<ApplicantType>(null);
   const [submitted, setSubmitted] = useState(false);
@@ -198,10 +202,10 @@ const Apply = () => {
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild variant="hero" size="lg">
-                  <Link to="/my-applications">View My Applications</Link>
+                  <Link href="/my-applications">View My Applications</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link to="/programs">Browse Programs</Link>
+                  <Link href="/programs">Browse Programs</Link>
                 </Button>
               </div>
             </div>
@@ -299,7 +303,7 @@ const Apply = () => {
                     For group or enterprise training, please submit a request through our Enterprise page.
                   </p>
                   <Button asChild variant="hero" size="lg">
-                    <Link to="/enterprise">Go to Enterprise Training <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                    <Link href="/enterprise">Go to Enterprise Training <ArrowRight className="ml-2 h-5 w-5" /></Link>
                   </Button>
                 </CardContent>
               </Card>

@@ -1,5 +1,7 @@
+"use client";
+import { Navigate } from "@/components/Navigate";
 import { ReactNode, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+;
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";

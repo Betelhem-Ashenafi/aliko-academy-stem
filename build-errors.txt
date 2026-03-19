@@ -1,0 +1,33 @@
+  ▲ Next.js 14.2.35
+  - Environments: .env
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./src/pages/Apply.tsx
+Module not found: Can't resolve 'react-router-dom'
+
+https://nextjs.org/docs/messages/module-not-found
+
+./src/pages/Login.tsx
+Module not found: Can't resolve 'react-router-dom'
+
+https://nextjs.org/docs/messages/module-not-found
+
+./src/pages/MyApplications.tsx
+Module not found: Can't resolve 'react-router-dom'
+
+https://nextjs.org/docs/messages/module-not-found
+
+./src/pages/ProgramDetail.tsx
+Module not found: Can't resolve 'react-router-dom'
+
+https://nextjs.org/docs/messages/module-not-found
+
+./src/pages/Signup.tsx
+Module not found: Can't resolve 'react-router-dom'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+> Build failed because of webpack errors

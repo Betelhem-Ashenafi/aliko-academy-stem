@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Program } from "@/data/programs";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
@@ -22,7 +22,7 @@ import catiaThumb from "@/assets/programs/catia-thumb.jpg";
 import ansysFluentThumb from "@/assets/programs/ansys-fluent-thumb.jpg";
 import civilEngThumb from "@/assets/programs/civil-engineering-thumb.jpg";
 
-const programThumbnails: Record<string, string> = {
+const programThumbnails: Record<string, any> = {
   "autocad": autocadThumb,
   "civil-3d": civil3dThumb,
   "etabs": etabsThumb,
@@ -51,7 +51,7 @@ export function FeaturedProgramCard({ program }: FeaturedProgramCardProps) {
 
   return (
     <Link
-      to={`/programs/${program.slug}`}
+      href={`/programs/${program.slug}`}
       className="group block rounded-2xl overflow-hidden border border-divider bg-card h-full flex flex-col transition-all duration-200 hover:shadow-xl hover:-translate-y-1"
     >
       {/* Thumbnail */}

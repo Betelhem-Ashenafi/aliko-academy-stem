@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { IndustryAlignmentBlock } from "@/components/shared/IndustryAlignmentBlock";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const Curriculum = () => {
@@ -25,10 +25,10 @@ const Curriculum = () => {
         <div className="container-content text-center">
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild variant="hero" size="lg">
-              <Link to="/programs">Explore Programs <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link href="/programs">Explore Programs <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
             <Button asChild variant="heroOutline" size="lg">
-              <Link to="/enterprise">Request Enterprise Training</Link>
+              <Link href="/enterprise">Request Enterprise Training</Link>
             </Button>
           </div>
         </div>

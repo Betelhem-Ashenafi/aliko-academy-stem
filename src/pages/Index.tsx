@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
@@ -23,7 +23,7 @@ const Index = () => {
     <Layout>
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={heroBg.src} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40" />
         <div className="container-content py-24 lg:py-36 relative z-10">
           <div className="max-w-3xl">
@@ -37,13 +37,13 @@ const Index = () => {
             </p>
             <div className="mt-12 flex flex-col sm:flex-row gap-4">
               <Button asChild size="xl" variant="hero">
-                <Link to="/programs">
+                <Link href="/programs">
                   Explore Programs
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button asChild size="xl" variant="heroOutline">
-                <Link to="/enterprise">
+                <Link href="/enterprise">
                   Request Enterprise Training
                 </Link>
               </Button>
@@ -68,7 +68,7 @@ const Index = () => {
               </p>
             </div>
             <Button asChild variant="outline" size="lg">
-              <Link to="/programs">
+              <Link href="/programs">
                 Explore All Programs
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -101,7 +101,7 @@ const Index = () => {
           </div>
           <div className="mt-12 text-center">
             <Button asChild variant="outline" size="lg">
-              <Link to="/programs">
+              <Link href="/programs">
                 View All Programs
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -136,7 +136,7 @@ const Index = () => {
                 </ul>
                 <div className="mt-10">
                   <Button asChild size="lg" variant="hero">
-                    <Link to="/enterprise">
+                    <Link href="/enterprise">
                       Request Training Proposal
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>

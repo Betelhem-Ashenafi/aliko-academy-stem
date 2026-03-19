@@ -1,5 +1,6 @@
+"use client";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -47,7 +48,7 @@ const ForgotPassword = () => {
                   If an account exists for <span className="font-bold text-foreground">{email}</span>, we've sent a password reset link.
                 </p>
                 <Button asChild variant="outline">
-                  <Link to="/login"><ArrowLeft className="mr-2 h-4 w-4" />Back to Login</Link>
+                  <Link href="/login"><ArrowLeft className="mr-2 h-4 w-4" />Back to Login</Link>
                 </Button>
               </div>
             ) : (
@@ -70,7 +71,7 @@ const ForgotPassword = () => {
                       </Button>
                     </form>
                     <div className="mt-4 text-center">
-                      <Link to="/login" className="text-sm text-primary hover:underline">
+                      <Link href="/login" className="text-sm text-primary hover:underline">
                         <ArrowLeft className="inline h-3 w-3 mr-1" />Back to Login
                       </Link>
                     </div>

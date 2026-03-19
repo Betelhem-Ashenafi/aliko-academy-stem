@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Badge } from "@/components/ui/badge";
@@ -25,7 +26,7 @@ interface InquiryRow {
 }
 
 const inquiryStatuses = ["new", "contacted", "qualified", "closed"];
-const statusColors: Record<string, string> = {
+const statusColors: Record<string, any> = {
   new: "bg-primary/15 text-primary border-primary/30",
   contacted: "bg-accent/15 text-accent border-accent/30",
   qualified: "bg-accent-green/15 text-accent-green border-accent-green/30",

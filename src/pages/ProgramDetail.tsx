@@ -1,4 +1,8 @@
-import { useParams, Link, Navigate } from "react-router-dom";
+"use client";
+import { Navigate } from "@/components/Navigate";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+;
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -25,7 +29,8 @@ import { getProgramBySlug } from "@/data/programs";
 import { cn } from "@/lib/utils";
 
 const ProgramDetail = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const params = useParams<{ slug: string }>();
+  const slug = params?.slug;
   const program = slug ? getProgramBySlug(slug) : undefined;
 
   if (!program) {
@@ -50,7 +55,7 @@ const ProgramDetail = () => {
       <div className="border-b border-divider bg-card">
         <div className="container-content py-4">
           <nav className="flex items-center gap-2 text-sm">
-            <Link to="/programs" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+            <Link href="/programs" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
               <ArrowLeft className="h-4 w-4" />
               Programs
             </Link>
@@ -263,13 +268,13 @@ const ProgramDetail = () => {
                     </h3>
                     <div className="space-y-4">
                       <Button asChild className="w-full" size="lg" variant="hero">
-                        <Link to={`/apply?program=${encodeURIComponent(program.title)}`}>
+                        <Link href={`/apply?program=${encodeURIComponent(program.title)}`}>
                           Apply Now
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                       </Button>
                       <Button asChild className="w-full" variant="outline">
-                        <Link to="/enterprise">
+                        <Link href="/enterprise">
                           Request Group Training
                         </Link>
                       </Button>
@@ -332,7 +337,7 @@ const ProgramDetail = () => {
       <section className="py-8 border-t border-divider bg-card">
         <div className="container-content">
           <Button asChild variant="ghost">
-            <Link to="/programs">
+            <Link href="/programs">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to All Programs
             </Link>

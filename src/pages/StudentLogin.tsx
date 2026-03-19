@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,7 +11,7 @@ const StudentLogin = () => {
       <section className="gradient-hero py-24 lg:py-32">
         <div className="container-content">
           <div className="max-w-2xl mx-auto text-center">
-            <img src={logoImg} alt="Aliko Academy STEM" className="h-24 lg:h-32 w-auto mx-auto mb-8" />
+            <img src={logoImg.src} alt="Aliko Academy STEM" className="h-24 lg:h-32 w-auto mx-auto mb-8" />
             <h1 className="font-display text-5xl lg:text-6xl font-extrabold text-foreground">
               Student <span className="text-primary">Login</span>
             </h1>
@@ -57,7 +57,7 @@ const StudentLogin = () => {
             </Card>
 
             <div className="mt-10 grid sm:grid-cols-2 gap-6">
-              <Link to="/contact">
+              <Link href="/contact">
                 <Card className="border-divider bg-card hover:border-accent-green/40 hover:shadow-xl hover:shadow-accent-green/10 transition-all duration-300 h-full group card-hover">
                   <CardContent className="p-7 flex items-start gap-4">
                     <div className="h-12 w-12 rounded-xl bg-accent-green/15 border border-accent-green/30 flex items-center justify-center flex-shrink-0">
@@ -75,7 +75,7 @@ const StudentLogin = () => {
                 </Card>
               </Link>
 
-              <Link to="/programs">
+              <Link href="/programs">
                 <Card className="border-divider bg-card hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10 transition-all duration-300 h-full group card-hover">
                   <CardContent className="p-7 flex items-start gap-4">
                     <div className="h-12 w-12 rounded-xl bg-accent/15 border border-accent/30 flex items-center justify-center flex-shrink-0">

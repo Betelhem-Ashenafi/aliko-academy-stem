@@ -1,5 +1,7 @@
+"use client";
 import { ReactNode } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import {
   LayoutDashboard,
@@ -29,12 +31,12 @@ interface AdminLayoutProps {
 }
 
 export function AdminLayout({ children, title }: AdminLayoutProps) {
-  const location = useLocation();
+  const location = usePathname();
   const { signOut } = useAuth();
 
   const isActive = (href: string) => {
-    if (href === "/admin") return location.pathname === "/admin";
-    return location.pathname.startsWith(href);
+    if (href === "/admin") return (location || "") === "/admin";
+    return (location || "").startsWith(href);
   };
 
   return (
@@ -42,7 +44,7 @@ export function AdminLayout({ children, title }: AdminLayoutProps) {
       {/* Sidebar */}
       <aside className="w-64 border-r border-divider bg-card flex flex-col flex-shrink-0">
         <div className="p-5 border-b border-divider">
-          <Link to="/" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="h-4 w-4" />
             Back to Site
           </Link>
@@ -52,7 +54,7 @@ export function AdminLayout({ children, title }: AdminLayoutProps) {
           {navItems.map((item) => (
             <Link
               key={item.href}
-              to={item.href}
+              href={item.href}
               className={cn(
                 "flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
                 isActive(item.href)

@@ -38,7 +38,7 @@ import nxAerospaceThumb from "@/assets/programs/nx-aerospace-thumb.jpg";
 import solidworksAerospaceThumb from "@/assets/programs/solidworks-aerospace-thumb.jpg";
 import ansysAerospaceThumb from "@/assets/programs/ansys-aerospace-thumb.jpg";
 
-export const programThumbnails: Record<string, string> = {
+export const programThumbnails: Record<string, any> = {
   // Civil Engineering
   "autocad": autocadThumb,
   "civil-3d": civil3dThumb,

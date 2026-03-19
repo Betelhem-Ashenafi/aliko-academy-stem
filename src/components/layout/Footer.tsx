@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
 import logoImg from "@/assets/aliko-stem-logo.png";
 
@@ -28,8 +28,8 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/">
-              <img src={logoImg} alt="Aliko Academy STEM" className="h-14 w-auto" />
+            <Link href="/">
+              <img src={logoImg.src} alt="Aliko Academy STEM" className="h-14 w-auto" />
             </Link>
             <p className="mt-5 text-base text-[hsl(210_30%_78%)] max-w-xs leading-relaxed">
               Industry-aligned engineering and STEM training for students, professionals, and organizations.
@@ -52,7 +52,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3">
               {footerLinks.programs.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-base text-muted-foreground hover:text-primary transition-colors font-medium">{link.name}</Link>
+                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary transition-colors font-medium">{link.name}</Link>
                 </li>
               ))}
             </ul>
@@ -64,11 +64,11 @@ export function Footer() {
             <ul className="mt-5 space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-base text-muted-foreground hover:text-primary transition-colors font-medium">{link.name}</Link>
+                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary transition-colors font-medium">{link.name}</Link>
                 </li>
               ))}
               <li>
-                <Link to="/student-login" className="text-base text-muted-foreground hover:text-primary transition-colors font-medium">Student Login</Link>
+                <Link href="/student-login" className="text-base text-muted-foreground hover:text-primary transition-colors font-medium">Student Login</Link>
               </li>
             </ul>
           </div>
@@ -79,7 +79,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-base text-muted-foreground hover:text-primary transition-colors font-medium">{link.name}</Link>
+                  <Link href={link.href} className="text-base text-muted-foreground hover:text-primary transition-colors font-medium">{link.name}</Link>
                 </li>
               ))}
             </ul>

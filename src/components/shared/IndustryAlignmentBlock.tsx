@@ -1,3 +1,4 @@
+"use client";
 import { useRef, useEffect, useCallback } from "react";
 import autodeskLogo from "@/assets/vendors/autodesk.jpg";
 import bentleyLogo from "@/assets/vendors/bentley.jpg";
@@ -96,7 +97,7 @@ export function IndustryAlignmentBlock({ variant = "default" }: IndustryAlignmen
               >
                 <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden transition-transform duration-300 group-hover/item:scale-110">
                   <img
-                    src={eco.logo}
+                    src={eco.logo.src}
                     alt={eco.name}
                     className="w-full h-full object-cover"
                   />

@@ -1,5 +1,9 @@
+"use client";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+;
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,9 +17,9 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get("redirect") || "/my-applications";
+  const navigate = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams?.get("redirect") || "/my-applications";
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,7 +31,7 @@ const Login = () => {
       });
       if (error) throw error;
       toast.success("Welcome back!");
-      navigate(redirectTo);
+      navigate.push(redirectTo);
     } catch (err: any) {
       toast.error("Login failed", { description: err.message });
     } finally {
@@ -73,7 +77,7 @@ const Login = () => {
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
                       <Label htmlFor="password" className="font-bold">Password</Label>
-                      <Link to="/forgot-password" className="text-xs text-primary hover:underline">
+                      <Link href="/forgot-password" className="text-xs text-primary hover:underline">
                         Forgot password?
                       </Link>
                     </div>
@@ -97,7 +101,7 @@ const Login = () => {
 
                 <div className="mt-6 text-center text-sm text-muted-foreground">
                   Don't have an account?{" "}
-                  <Link to={`/signup${redirectTo !== "/my-applications" ? `?redirect=${encodeURIComponent(redirectTo)}` : ""}`} className="text-primary font-bold hover:underline">
+                  <Link href={`/signup${redirectTo !== "/my-applications" ? `?redirect=${encodeURIComponent(redirectTo)}` : ""}`} className="text-primary font-bold hover:underline">
                     Create one
                     <ArrowRight className="inline h-3 w-3 ml-1" />
                   </Link>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Domain } from "@/data/domains";
 import { getDomainProgramCount } from "@/data/programs";
 import { cn } from "@/lib/utils";
@@ -13,7 +13,7 @@ import gisImg from "@/assets/domains/gis-infrastructure.jpg";
 import aviationImg from "@/assets/domains/aviation-aerospace.jpg";
 import chemicalImg from "@/assets/domains/chemical-engineering.jpg";
 
-const domainImages: Record<string, string> = {
+const domainImages: Record<string, any> = {
   "civil-structural": civilImg, electrical: electricalImg, mechanical: mechanicalImg,
   chemical: chemicalImg, architectural: architecturalImg, "structural-bim": structuralImg,
   "project-controls": projectImg, "gis-international": gisImg, aviation: aviationImg,
@@ -43,7 +43,7 @@ export function EnhancedDomainCard({ domain, className }: EnhancedDomainCardProp
 
   return (
     <Link
-      to="/programs"
+      href="/programs"
       className={cn(
         "group relative block overflow-hidden rounded-2xl aspect-[4/3]",
         "transition-all duration-500 hover:scale-[1.05] hover:shadow-2xl",
@@ -51,7 +51,7 @@ export function EnhancedDomainCard({ domain, className }: EnhancedDomainCardProp
         className
       )}
     >
-      <img src={image} alt={domain.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+      <img src={image.src || image} alt={domain.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/15 group-hover:from-black/95 transition-opacity duration-300" />
       <div className="absolute inset-0 p-6 flex flex-col justify-end">
         <span className={cn("text-xs font-extrabold uppercase tracking-widest mb-2 px-3 py-1 rounded-full w-fit", accent.label, accent.labelBg)}>Engineering Domain</span>
