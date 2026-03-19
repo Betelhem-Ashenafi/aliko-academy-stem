@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, Briefcase, Building2, ArrowRight } from "lucide-react";
 
@@ -52,7 +52,7 @@ export function AudienceStrip() {
           {audiences.map((audience) => {
             const Icon = audience.icon;
             return (
-              <Link key={audience.id} href={audience.link}>
+              <Link key={audience.id} to={audience.link}>
                 <Card className={`card-hover border-divider h-full group ${audience.hoverBorder} ${audience.hoverShadow} hover:shadow-2xl`}>
                   <CardContent className="p-8">
                     <div className={`h-14 w-14 rounded-xl ${audience.iconBg} flex items-center justify-center`}>

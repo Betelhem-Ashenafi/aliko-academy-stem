@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Program } from "@/data/programs";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -32,7 +32,7 @@ export function ProgramCard({ program, variant = "default" }: ProgramCardProps) 
   // Thumbnail variant - image-focused card
   if (variant === "thumbnail") {
     return (
-      <Link href={`/programs/${program.slug}`} className="group">
+      <Link to={`/programs/${program.slug}`} className="group">
         <Card className="border border-divider overflow-hidden h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-card">
           <div className="aspect-square overflow-hidden">
             {thumbnail ? (
@@ -71,7 +71,7 @@ export function ProgramCard({ program, variant = "default" }: ProgramCardProps) 
   // Visual variant - icon-focused with minimal text
   if (variant === "visual") {
     return (
-      <Link href={`/programs/${program.slug}`} className="group">
+      <Link to={`/programs/${program.slug}`} className="group">
         <Card className={cn(
           "border transition-all duration-200 overflow-hidden h-full",
           "hover:shadow-xl hover:-translate-y-1",
@@ -132,7 +132,7 @@ export function ProgramCard({ program, variant = "default" }: ProgramCardProps) 
         </CardContent>
         <CardFooter className="p-5 pt-0">
           <Button asChild variant="ghost" size="sm" className="w-full justify-between font-bold">
-            <Link href={`/programs/${program.slug}`}>
+            <Link to={`/programs/${program.slug}`}>
               View Program
               <ArrowRight className="h-4 w-4" />
             </Link>
@@ -196,7 +196,7 @@ export function ProgramCard({ program, variant = "default" }: ProgramCardProps) 
       </CardContent>
       <CardFooter className="p-7 pt-0">
         <Button asChild variant="outline" className="w-full group font-bold">
-          <Link href={`/programs/${program.slug}`}>
+          <Link to={`/programs/${program.slug}`}>
             View Program
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>

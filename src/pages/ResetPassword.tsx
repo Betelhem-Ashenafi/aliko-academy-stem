@@ -1,6 +1,5 @@
-"use client";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,14 +14,14 @@ const ResetPassword = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [done, setDone] = useState(false);
-  const navigate = useRouter();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check for recovery token in URL hash
     const hash = window.location.hash;
     if (!hash.includes("type=recovery")) {
       // No recovery token, redirect
-      navigate.push("/login");
+      navigate("/login");
     }
   }, [navigate]);
 
@@ -41,7 +40,7 @@ const ResetPassword = () => {
       const { error } = await supabase.auth.updateUser({ password });
       if (error) throw error;
       setDone(true);
-      setTimeout(() => navigate.push("/login"), 3000);
+      setTimeout(() => navigate("/login"), 3000);
     } catch (err: any) {
       toast.error("Failed to reset password", { description: err.message });
     } finally {

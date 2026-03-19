@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { ProgramCard } from "@/components/programs/ProgramCard";
 import { Button } from "@/components/ui/button";
@@ -211,7 +211,7 @@ const Domains = () => {
                         {domainPrograms.map((program) => (
                           <Link 
                             key={program.id}
-                            href={`/programs/${program.slug}`}
+                            to={`/programs/${program.slug}`}
                             className="block text-sm text-primary hover:underline"
                           >
                             → {program.title}
@@ -221,7 +221,7 @@ const Domains = () => {
                     )}
 
                     <Button asChild variant="outline" size="sm" className="w-full">
-                      <Link href={`/programs?domain=${encodeURIComponent(domain.name)}`}>
+                      <Link to={`/programs?domain=${encodeURIComponent(domain.name)}`}>
                         View All Programs
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
@@ -245,7 +245,7 @@ const Domains = () => {
             based on your specific technology and workforce needs.
           </p>
           <Button asChild variant="hero" size="lg">
-            <Link href="/enterprise">
+            <Link to="/enterprise">
               Request Enterprise Training
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

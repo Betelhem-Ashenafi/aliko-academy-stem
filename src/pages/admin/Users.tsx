@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from "react";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Badge } from "@/components/ui/badge";
@@ -77,7 +76,7 @@ const AdminUsers = () => {
     toast.success(`Role changed to ${newRole}`);
   };
 
-  const roleColors: Record<string, any> = {
+  const roleColors: Record<string, string> = {
     student: "bg-muted text-muted-foreground",
     admin: "bg-primary/15 text-primary border-primary/30",
     superadmin: "bg-accent-green/15 text-accent-green border-accent-green/30",

@@ -1,6 +1,5 @@
-"use client";
 import { useState, useMemo } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { ProgramCard } from "@/components/programs/ProgramCard";
 import { Button } from "@/components/ui/button";
@@ -154,7 +153,7 @@ const Programs = () => {
           {hasMore && (
             <div className="mt-6 text-center">
               <Button asChild variant="outline" size="sm" className={cn("font-bold", colorStyle.text, colorStyle.border)}>
-                <Link href={`/programs?domain=${encodeURIComponent(domainName)}`}>
+                <Link to={`/programs?domain=${encodeURIComponent(domainName)}`}>
                   Explore All {filteredPrograms.length} Programs
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -277,7 +276,7 @@ const Programs = () => {
             Looking for customized training?
           </h3>
           <Button asChild variant="hero" size="lg">
-            <Link href="/enterprise">
+            <Link to="/enterprise">
               Request Enterprise Training
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>

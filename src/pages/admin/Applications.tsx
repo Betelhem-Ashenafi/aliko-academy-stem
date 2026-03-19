@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from "react";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Badge } from "@/components/ui/badge";
@@ -34,7 +33,7 @@ interface ApplicationRow {
 }
 
 const statuses = ["submitted", "review", "accepted", "waitlist", "rejected"];
-const statusColors: Record<string, any> = {
+const statusColors: Record<string, string> = {
   submitted: "bg-primary/15 text-primary border-primary/30",
   review: "bg-accent/15 text-accent border-accent/30",
   accepted: "bg-accent-green/15 text-accent-green border-accent-green/30",

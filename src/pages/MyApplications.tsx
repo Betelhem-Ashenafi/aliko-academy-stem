@@ -1,8 +1,5 @@
-"use client";
-import { Navigate } from "@/components/Navigate";
 import { useEffect, useState } from "react";
-import Link from "next/link";
-;
+import { Link, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -101,7 +98,7 @@ const MyApplications = () => {
                 Browse our programs and submit your first application.
               </p>
               <Button asChild variant="hero" size="lg">
-                <Link href="/programs">
+                <Link to="/programs">
                   Browse Programs
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

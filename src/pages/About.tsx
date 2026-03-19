@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -56,7 +56,7 @@ const About = () => {
             Ready to get started?
           </h2>
           <Button asChild variant="hero" size="lg">
-            <Link href="/programs">Explore Programs <ArrowRight className="ml-2 h-5 w-5" /></Link>
+            <Link to="/programs">Explore Programs <ArrowRight className="ml-2 h-5 w-5" /></Link>
           </Button>
         </div>
       </section>

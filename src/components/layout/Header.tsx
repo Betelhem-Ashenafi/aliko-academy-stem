@@ -1,7 +1,5 @@
-"use client";
 import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, LogIn, User } from "lucide-react";
 import logoImg from "@/assets/aliko-stem-logo.png";
 import { Button } from "@/components/ui/button";
@@ -20,20 +18,20 @@ const navigation = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = usePathname();
+  const location = useLocation();
   const { user, loading } = useAuth();
 
   const isActive = (path: string) => {
-    if (path === "/") return (location || "") === "/";
-    return (location || "").startsWith(path);
+    if (path === "/") return location.pathname === "/";
+    return location.pathname.startsWith(path);
   };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-navbar border-b border-border/50 shadow-xl shadow-black/30 backdrop-blur-xl">
       <nav className="container-content flex h-18 items-center justify-between lg:h-20">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <img src={logoImg.src} alt="Aliko Academy STEM" className="h-12 lg:h-14 w-auto" />
+        <Link to="/" className="flex items-center">
+          <img src={logoImg} alt="Aliko Academy STEM" className="h-12 lg:h-14 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -41,7 +39,7 @@ export function Header() {
           {navigation.map((item) => (
             <Link
               key={item.name}
-              href={item.href}
+              to={item.href}
               className={cn(
                 "px-4 py-2.5 text-[15px] font-bold transition-all duration-300 rounded-lg",
                 isActive(item.href)
@@ -57,20 +55,20 @@ export function Header() {
         {/* Desktop CTA */}
         <div className="hidden lg:flex lg:items-center lg:gap-3">
           <Button asChild size="sm" className="font-extrabold bg-accent-green text-background hover:bg-accent-green/85 shadow-lg shadow-accent-green/30 hover:-translate-y-0.5 transition-all duration-200 px-6 tracking-wide uppercase text-xs">
-            <Link href="/apply">
+            <Link to="/apply">
               Apply Now
             </Link>
           </Button>
           {!loading && user ? (
             <Button asChild size="sm" className="font-bold bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/30 px-5">
-              <Link href="/my-applications">
+              <Link to="/my-applications">
                 <User className="h-4 w-4 mr-1.5" />
                 My Apps
               </Link>
             </Button>
           ) : (
             <Button asChild size="sm" className="font-bold bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/30 px-5">
-              <Link href="/login">
+              <Link to="/login">
                 <LogIn className="h-4 w-4 mr-1.5" />
                 Sign In
               </Link>
@@ -100,7 +98,7 @@ export function Header() {
             {navigation.map((item) => (
               <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={cn(
                   "block px-5 py-3.5 text-base font-bold rounded-xl transition-all duration-200",
@@ -114,19 +112,19 @@ export function Header() {
             ))}
             <div className="pt-4 px-4 space-y-2">
               <Button asChild className="w-full font-extrabold bg-accent-green text-background hover:bg-accent-green/85 shadow-lg shadow-accent-green/30 tracking-wide uppercase text-xs">
-                <Link href="/apply" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/apply" onClick={() => setMobileMenuOpen(false)}>
                   Apply Now
                 </Link>
               </Button>
               {!loading && user ? (
                 <Button asChild className="w-full font-bold bg-primary text-white">
-                  <Link href="/my-applications" onClick={() => setMobileMenuOpen(false)}>
+                  <Link to="/my-applications" onClick={() => setMobileMenuOpen(false)}>
                     My Applications
                   </Link>
                 </Button>
               ) : (
                 <Button asChild className="w-full font-bold bg-primary text-white">
-                  <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                  <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
                     Sign In
                   </Link>
                 </Button>

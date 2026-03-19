@@ -1,9 +1,5 @@
-"use client";
-import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-;
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,9 +15,9 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const navigate = useRouter();
-  const searchParams = useSearchParams();
-  const redirectTo = searchParams?.get("redirect") || "/my-applications";
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const redirectTo = searchParams.get("redirect") || "/my-applications";
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,7 +61,7 @@ const Signup = () => {
                 Click the link to verify your account, then sign in.
               </p>
               <Button asChild variant="outline" size="lg" className="mt-8">
-                <Link href="/login">Go to Login</Link>
+                <Link to="/login">Go to Login</Link>
               </Button>
             </div>
           </div>
@@ -146,7 +142,7 @@ const Signup = () => {
 
                 <div className="mt-6 text-center text-sm text-muted-foreground">
                   Already have an account?{" "}
-                  <Link href="/login" className="text-primary font-bold hover:underline">
+                  <Link to="/login" className="text-primary font-bold hover:underline">
                     Sign in
                   </Link>
                 </div>
